@@ -1,0 +1,5 @@
+# Ignore everything outside public directory
+/*
+!/public/**
+!vercel.json
+!package.json
