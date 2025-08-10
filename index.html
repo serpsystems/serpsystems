@@ -8,59 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Simple Language Redirect - Browser Language Only -->
-  <script>
-  // IMMEDIATE EXECUTION - No waiting for DOM or external APIs
-  (function() {
-    console.log('🌍 Simple redirect starting...');
-    
-    // Check current path
-    const path = window.location.pathname;
-    console.log('🌍 Current path:', path);
-    
-    // Don't redirect if already on language path or specific page
-    if (path.match(/^\/(en|it|es|fr|de)\//)) {
-      console.log('🌍 Already on language path, no redirect needed');
-      return;
-    }
-    
-    if (path !== '/' && path !== '/index.html') {
-      console.log('🌍 Not on root page, no redirect needed');
-      return;
-    }
-    
-    // Check saved preference first
-    const saved = localStorage.getItem('lang_pref');
-    if (saved) {
-      console.log('🌍 Using saved language:', saved);
-      window.location.replace('/' + saved + '/');
-      return;
-    }
-    
-    // Get browser language - SIMPLE approach
-    const browserLang = navigator.language || 'en-US';
-    const langCode = browserLang.split('-')[0].toLowerCase();
-    console.log('🌍 Browser language detected:', browserLang, '-> Code:', langCode);
-    
-    // Map to supported languages
-    let targetLang = 'en'; // default
-    if (langCode === 'it') targetLang = 'it';
-    else if (langCode === 'es') targetLang = 'es';  
-    else if (langCode === 'fr') targetLang = 'fr';
-    else if (langCode === 'de') targetLang = 'de';
-    
-    console.log('🌍 Target language:', targetLang);
-    
-    // Save preference and redirect
-    localStorage.setItem('lang_pref', targetLang);
-    console.log('🌍 Redirecting to:', '/' + targetLang + '/');
-    
-    // Use replace to avoid back button issues
-    window.location.replace('/' + targetLang + '/');
-    
-  })();
-  </script>
+
 </head>
 <body>
   <!-- Loading Screen -->
