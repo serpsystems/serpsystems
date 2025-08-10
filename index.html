@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>serp.systems | AI-Powered SEO Revolution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Simple Language Redirect - Browser Language Only -->
+  <script>
+  // IMMEDIATE EXECUTION - No waiting for DOM or external APIs
+  (function() {
+    console.log('🌍 Simple redirect starting...');
+    
+    // Check current path
+    const path = window.location.pathname;
+    console.log('🌍 Current path:', path);
+    
+    // Don't redirect if already on language path or specific page
+    if (path.match(/^\/(en|it|es|fr|de)\//)) {
+      console.log('🌍 Already on language path, no redirect needed');
+      return;
+    }
+    
+    if (path !== '/' && path !== '/index.html') {
+      console.log('🌍 Not on root page, no redirect needed');
+      return;
+    }
+    
+    // Check saved preference first
+    const saved = localStorage.getItem('lang_pref');
+    if (saved) {
+      console.log('🌍 Using saved language:', saved);
+      window.location.replace('/' + saved + '/');
+      return;
+    }
+    
+    // Get browser language - SIMPLE approach
+    const browserLang = navigator.language || 'en-US';
+    const langCode = browserLang.split('-')[0].toLowerCase();
+    console.log('🌍 Browser language detected:', browserLang, '-> Code:', langCode);
+    
+    // Map to supported languages
+    let targetLang = 'en'; // default
+    if (langCode === 'it') targetLang = 'it';
+    else if (langCode === 'es') targetLang = 'es';  
+    else if (langCode === 'fr') targetLang = 'fr';
+    else if (langCode === 'de') targetLang = 'de';
+    
+    console.log('🌍 Target language:', targetLang);
+    
+    // Save preference and redirect
+    localStorage.setItem('lang_pref', targetLang);
+    console.log('🌍 Redirecting to:', '/' + targetLang + '/');
+    
+    // Use replace to avoid back button issues
+    window.location.replace('/' + targetLang + '/');
+    
+  })();
+  </script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <span class="loading-text">serp<span class="logo-dot">.</span>systems</span>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-blur"></div>
+    <div class="container">
+      <div class="logo-container">
+        <h1 class="logo">
+          <span class="logo-text">serp<span class="logo-dot">.</span>systems</span>
+        </h1>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle hide-on-desktop" id="mobileMenuToggle">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <nav class="nav" id="mobileNav">
+        <ul class="nav-list">
+          <li><a href="#services" class="nav-link" data-text="Services">Services</a></li>
+          <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+          <li><a href="#contact" class="nav-link modal-trigger" data-text="Contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-grid"></div>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-icon">🚀</span>
+          <span class="badge-text">AI-Powered SEO Revolution</span>
+        </div>
+        
+        <h1 class="hero-title">
+          <span class="title-line">
+            <span class="word" data-aos="fade-up">Dominate</span>
+            <span class="word" data-aos="fade-up" data-aos-delay="100">Search.</span>
+          </span>
+          <span class="title-line">
+            <span class="word highlight" data-aos="fade-up" data-aos-delay="200">Win</span>
+            <span class="word" data-aos="fade-up" data-aos-delay="300">the</span>
+            <span class="word" data-aos="fade-up" data-aos-delay="400">Web.</span>
+          </span>
+        </h1>
+        
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
+          Revolutionary AI technology that creates, optimizes, and scales content 
+          <span class="text-highlight">10x faster</span> than traditional methods.
+        </p>
+        
+        <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+          <a href="#contact" class="cta-btn primary-cta modal-trigger">
+            <span class="btn-text">Start Your Journey</span>
+            <div class="btn-shine"></div>
+          </a>
+          <a href="#services" class="cta-btn secondary-cta">
+            <span class="btn-text">Learn More</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="poker-showcase">
+          <div class="poker-card winner-card">
+            <div class="card-suit red">♠</div>
+            <div class="card-rank">A</div>
+            <div class="card-label">
+              <span class="rank-text">#1 WINNER</span>
+              <span class="rank-desc">serp.systems</span>
+            </div>
+            <div class="winner-glow"></div>
+          </div>
+          <div class="poker-card normal-card">
+            <div class="card-suit">♥</div>
+            <div class="card-rank">K</div>
+            <div class="card-label">
+              <span class="rank-text">#2</span>
+              <span class="rank-desc">Competitor</span>
+            </div>
+          </div>
+          <div class="poker-card normal-card">
+            <div class="card-suit">♦</div>
+            <div class="card-rank">Q</div>
+            <div class="card-label">
+              <span class="rank-text">#3</span>
+              <span class="rank-desc">Competitor</span>
+            </div>
+          </div>
+          <div class="poker-card normal-card">
+            <div class="card-suit">♣</div>
+            <div class="card-rank">J</div>
+            <div class="card-label">
+              <span class="rank-text">#4</span>
+              <span class="rank-desc">Competitor</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="code-preview">
+          <div class="code-header">
+            <div class="window-controls">
+              <div class="control red"></div>
+              <div class="control yellow"></div>
+              <div class="control green"></div>
+            </div>
+            <span class="code-title">ai-seo-engine.py</span>
+          </div>
+          <div class="code-content">
+            <div class="code-line">
+              <span class="code-comment"># AI-powered content generation</span>
+            </div>
+            <div class="code-line">
+              <span class="code-keyword">def</span> <span class="code-function">generate_content</span>():
+            </div>
+            <div class="code-line">
+              &nbsp;&nbsp;<span class="code-string">"Optimizing for search..."</span>
+            </div>
+            <div class="code-line">
+              &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">"Perfect SEO content"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span class="scroll-text">Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">What We Do</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Cutting-edge AI solutions that transform your digital presence
+        </p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <div class="icon-bg"></div>
+            <span class="icon">🤖</span>
+          </div>
+          <h3>AI Content Generation</h3>
+          <p>Advanced algorithms create perfectly optimized content that ranks higher and converts better.</p>
+          <div class="service-features">
+            <span class="feature">SEO Optimized</span>
+            <span class="feature">Auto-generated</span>
+            <span class="feature">High Quality</span>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <div class="icon-bg"></div>
+            <span class="icon">📈</span>
+          </div>
+          <h3>Performance Analytics</h3>
+          <p>Real-time monitoring and insights to track your SEO success and optimize strategies.</p>
+          <div class="service-features">
+            <span class="feature">Real-time</span>
+            <span class="feature">Detailed Reports</span>
+            <span class="feature">Actionable</span>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <div class="icon-bg"></div>
+            <span class="icon">⚡</span>
+          </div>
+          <h3>Automation Engine</h3>
+          <p>Streamline your entire SEO workflow with intelligent automation and smart optimizations.</p>
+          <div class="service-features">
+            <span class="feature">Automated</span>
+            <span class="feature">Intelligent</span>
+            <span class="feature">Scalable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <!-- Interactive Network Background for Future of SEO Section -->
+    <canvas id="networkCanvas" class="network-background"></canvas>
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text" data-aos="fade-right">
+          <h2 class="section-title">The future of SEO.</h2>
+          <p class="about-description">
+            We've revolutionized content creation with proprietary AI software that understands 
+            search intent, analyzes competitors, and generates content that doesn't just 
+            rank—it dominates. No overcomplicated stuff.
+          </p>
+          <div class="stats-grid">
+            <div class="stat">
+              <span class="stat-number" data-count="10">0</span>
+              <span class="stat-unit">x</span>
+              <span class="stat-label">Faster Generation</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="95">0</span>
+              <span class="stat-unit">%</span>
+              <span class="stat-label">Ranking Success</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="500">0</span>
+              <span class="stat-unit">+</span>
+              <span class="stat-label">Articles Generated</span>
+            </div>
+          </div>
+          <div class="stats-disclaimer">
+            <p>THE PERCENTAGES AND FIGURES SHOWN ARE ESTIMATES BASED ON INTERNAL PROJECTIONS AND ARE NOT DERIVED FROM VERIFIED THIRD-PARTY STUDIES. ACTUAL RESULTS MAY VARY DEPENDING ON VARIOUS FACTORS INCLUDING INDUSTRY, COMPETITION, AND IMPLEMENTATION.</p>
+          </div>
+        </div>
+        
+        <div class="about-visual" data-aos="fade-left">
+          <div class="content-factory" data-aos="fade-up">
+            <div class="factory-header">
+              <h3 class="factory-title">SEO Content Factory</h3>
+              <p class="factory-subtitle">Our AI software creates optimized articles in real-time.</p>
+            </div>
+            
+            <div class="factory-visualization">
+              <!-- Input Pipeline -->
+              <div class="pipeline-section input-section">
+                <div class="section-label">INPUT</div>
+                <div class="input-items">
+                  <div class="input-item" data-delay="0">🎯 Keywords</div>
+                  <div class="input-item" data-delay="0.5">📊 Analytics</div>
+                  <div class="input-item" data-delay="1">🔍 Research</div>
+                </div>
+                <div class="conveyor-belt input-belt"></div>
+              </div>
+              
+              <!-- Processing Core -->
+              <div class="pipeline-section processing-section">
+                <div class="ai-brain">
+                  <div class="brain-core">
+                    <div class="neural-network">
+                      <div class="neuron"></div>
+                      <div class="neuron"></div>
+                      <div class="neuron"></div>
+                      <div class="neuron"></div>
+                      <div class="neuron"></div>
+                      <div class="neuron"></div>
+                    </div>
+                    <div class="processing-text">AI ENGINE</div>
+                  </div>
+
+                </div>
+              </div>
+              
+              <!-- Output Pipeline -->
+              <div class="pipeline-section output-section">
+                <div class="section-label">OUTPUT</div>
+                <div class="output-items">
+                  <div class="output-item" data-delay="2">📝 Article</div>
+                  <div class="output-item" data-delay="2.5">🏷️ Meta Tags</div>
+                  <div class="output-item" data-delay="3">🔗 Internal Links</div>
+                </div>
+                <div class="conveyor-belt output-belt"></div>
+              </div>
+            </div>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-container">
+      <div class="modal-box">
+        <button class="modal-close" id="modalClose">×</button>
+        
+        <div class="modal-header">
+          <h2 class="modal-title">Let's Build Something Amazing</h2>
+          <p class="modal-desc">Ready to dominate search results? Let's talk.</p>
+        </div>
+        
+        <form class="modal-form" id="contactForm">
+          <div class="form-field">
+            <label>Your Name</label>
+            <input type="text" id="name" required>
+          </div>
+          
+          <div class="form-field">
+            <label>Email Address</label>
+            <input type="email" id="email" required>
+          </div>
+          
+          <div class="form-field">
+            <label>How can we help you?</label>
+            <textarea id="message" required rows="4"></textarea>
+          </div>
+          
+          <button type="submit" class="form-submit">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3 class="footer-logo">serp<span class="logo-dot">.</span>systems</h3>
+          <p class="footer-tagline">Revolutionizing SEO with AI</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>Product</h4>
+            <a href="panel.html">Panel</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+          </div>
+          
+          <div class="link-group">
+            <h4>Legal</h4>
+            <a href="terms.html" target="_blank">Terms</a>
+            <a href="privacy.html" target="_blank">Privacy</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 serp.systems. All rights reserved. | P.IVA 12345678901</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
