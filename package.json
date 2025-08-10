@@ -1,0 +1,16 @@
+{
+  "name": "serpsystems-homepage",
+  "version": "1.0.0",
+  "description": "serp.systems homepage - AI-Powered SEO Revolution",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["seo", "ai", "homepage", "static"],
+  "author": "serp.systems",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
